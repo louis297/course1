@@ -1,0 +1,47 @@
+﻿@model IEnumerable<course1.Models.Post>
+
+@{
+    ViewBag.Title = "Post List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Post List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.postAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postBody)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.postAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postBody)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.postId  }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.postId  }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.postId  })
+        </td>
+    </tr>
+}
+
+</table>
+
